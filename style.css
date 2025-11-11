@@ -1,0 +1,88 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: hsl(0, 0%, 90%);
+}
+h1{
+    text-align: center;
+    font-size: 3rem;
+    font-family:'Times New Roman', Times, serif;
+}
+.descContainer{
+    width: 35%;
+    height: 510px;
+    float: left;
+    font-size: 1.3rem;
+    padding: 30px;
+}
+.canvasContainer{
+    width: 30%;
+    height: 510px;
+    float: left;
+}
+.buttonContainer{
+    width: 35%;
+    height: 510px;
+    float: left;
+    padding-left: 10px;
+}
+.buttonContainer button{
+    width: 60px;
+    height: 60px;
+    border-radius: 3px;
+    border: 5px solid black;
+    margin-bottom: 10px;
+    cursor: pointer;
+    background-color: white;
+}
+.buttonContainer button:hover{
+    background-color: hsl(0, 0%, 70%);
+}
+.buttonContainer .selectedBtn{
+    background-color: hsl(0, 0%, 76%);
+}
+canvas{
+    width: 500px;
+    height: 500px;
+    border: 5px solid black;
+    cursor: pointer;
+}
+.guessBtn{
+    display: block;
+    margin: auto;
+    width: 200px;
+    height: 50px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-color: hsl(180, 100%, 70%);
+    border: 5px solid black;
+}
+.guessBtn:hover{
+    background-color: hsl(180, 100%, 30%);
+}
+.result{
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 1500px){
+    .descContainer, .canvasContainer, .buttonContainer{
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+    }
+    .descContainer{
+        text-align: center;
+    }
+    .buttonContainer{
+        margin: 10px;
+    }
+    .buttonContainer button{
+        margin: 10px;
+    }
+}
