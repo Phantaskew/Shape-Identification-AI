@@ -4,7 +4,7 @@ const brushBtn = document.querySelector(".brushBtn");
 const eraserBtn = document.querySelector(".eraserBtn");
 const result = document.querySelector(".result");
 
-let model = getModel()
+let model = getModel();
 const imageWidth = 50;
 const imageHeight = 50;
 const shapes = ["Circle", "Square", "Star", "Triangle"];
@@ -25,6 +25,8 @@ canvas.addEventListener("touchdown", draw);
 c.fillStyle = "white";
 c.fillRect(0, 0, canvas.width, canvas.height);
 c.fillStyle = "black";
+
+document.addEventListener("loadeddata", () => getModel())
 
 function draw(event){
     setTimeout(() => {
@@ -58,6 +60,11 @@ function clearCanvas(){
     result.textContent = "Hmmm";
 }
 async function determineShape(){
+    if (!model) {
+        result.textContent = "Model hasn't loaded yet."
+        return
+    }
+
     const image_data = c.getImageData(0, 0, canvas.width, canvas.height).data;
     let grayscaled_image_data = [];
 
