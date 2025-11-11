@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="https://pyscript.net/releases/2025.11.1/core.css" />
         <script type="module" src="https://pyscript.net/releases/2025.11.1/core.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+        <script src="https://kit.fontawesome.com/e5211af6bb.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <h1>Shape Identification AI Model</h1>
@@ -23,10 +24,9 @@
             <button  onclick="clearCanvas()"><i class="fa-solid fa-circle-xmark fa-2xl"></i></button>
         </div>
         
-        <button class="guessBtn" onclick="determineShape()">Guess</button>
-        <p class="result">Please draw something and I will guess</p>
+        <button class="guessBtn disabledBtn" disabled onclick="determineShape()">Loading</button>
+        <p class="result">Please wait patiently</p>
 
         <script src="index.js"></script>
-        <script src="https://kit.fontawesome.com/e5211af6bb.js" crossorigin="anonymous"></script>
     </body>
 </html>

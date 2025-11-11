@@ -65,6 +65,9 @@ canvas{
 .guessBtn:hover{
     background-color: hsl(180, 100%, 30%);
 }
+.disabledBtn{
+    background-color: hsl(180, 100%, 30%);
+}
 .result{
     text-align: center;
     font-size: 2rem;
@@ -73,7 +76,7 @@ canvas{
 
 @media screen and (max-width: 1500px){
     .descContainer, .canvasContainer, .buttonContainer{
-        width: 100%;
+        width: 98.5%;
         height: auto;
         display: flex;
         justify-content: center;
@@ -82,7 +85,8 @@ canvas{
         text-align: center;
     }
     .buttonContainer{
-        margin: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
     .buttonContainer button{
         margin: 10px;

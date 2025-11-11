@@ -2,9 +2,10 @@ const canvas = document.querySelector("canvas");
 const c = canvas.getContext("2d");
 const brushBtn = document.querySelector(".brushBtn");
 const eraserBtn = document.querySelector(".eraserBtn");
+const guessBtn = document.querySelector(".guessBtn");
 const result = document.querySelector(".result");
 
-let model = getModel();
+let model;
 const imageWidth = 50;
 const imageHeight = 50;
 const shapes = ["Circle", "Square", "Star", "Triangle"];
@@ -22,18 +23,20 @@ c.fillStyle = "white";
 c.fillRect(0, 0, canvas.width, canvas.height);
 c.fillStyle = "black";
 
-document.addEventListener("loadeddata", () => getModel())
+getModel();
 
 function draw(event){
     setTimeout(() => {
         if (!drawing) return;
 
-        result.textContent = "Hmmm";
         c.fillRect(event.x - canvas.getBoundingClientRect().x - 15, event.y - canvas.getBoundingClientRect().y - 15, 30, 30);
         c.fillRect(event.x - canvas.getBoundingClientRect().x - 7.5, event.y - canvas.getBoundingClientRect().y - 19, 15, 15);
         c.fillRect(event.x - canvas.getBoundingClientRect().x - 7.5, event.y - canvas.getBoundingClientRect().y + 4, 15, 15);
         c.fillRect(event.x - canvas.getBoundingClientRect().x - 19, event.y - canvas.getBoundingClientRect().y - 7.5, 15, 15);
         c.fillRect(event.x - canvas.getBoundingClientRect().x + 4, event.y - canvas.getBoundingClientRect().y - 7.5, 15, 15);
+
+        if (!model) return;
+        result.textContent = "Hmmm";
     }, 0.01);
 }
 
@@ -53,6 +56,8 @@ function clearCanvas(){
     c.fillStyle = "white";
     c.fillRect(0, 0, canvas.width, canvas.height);
     c.fillStyle = currentColor;
+
+    if (!model) return;
     result.textContent = "Hmmm";
 }
 async function determineShape(){
@@ -108,6 +113,10 @@ async function getModel(){
     try {
         model = await tf.loadLayersModel("./model/model.json");
         console.log("Model successfully loaded!");
+        guessBtn.textContent = "Guess";
+        guessBtn.disabled = false;
+        guessBtn.classList.remove(["disabledBtn"]);
+        result.textContent = "I'm ready to guess!";
     }
     catch(error){
         console.error(error);
