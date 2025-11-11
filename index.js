@@ -80,7 +80,7 @@ async function determineShape(){
         }
     }
     if (isBlankCanvas){
-        result.textContent = "You drew nothing yet!";
+        result.textContent = "You've drawn nothing yet!";
         return;
     }
 
@@ -103,7 +103,7 @@ async function determineShape(){
 
 async function getModel(){
     try {
-        model = await tf.loadLayersModel("model/model.json");
+        model = await tf.loadLayersModel("./model/model.json");
         console.log("Model successfully loaded!");
     }
     catch(error){
