@@ -14,9 +14,13 @@ let currentColor = "black"
 
 document.addEventListener("mousedown", () => drawing = true);
 document.addEventListener("mouseup", () => drawing = false);
+document.addEventListener("touchstart", () => drawing = true);
+document.addEventListener("touchend", () => drawing = false);
 
 canvas.addEventListener("mousemove", draw);
 canvas.addEventListener("mousedown", draw);
+canvas.addEventListener("touchmove", draw);
+canvas.addEventListener("touchdown", draw);
 
 c.fillStyle = "white";
 c.fillRect(0, 0, canvas.width, canvas.height);
