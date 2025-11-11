@@ -12,15 +12,11 @@ const shapes = ["Circle", "Square", "Star", "Triangle"];
 let drawing = false;
 let currentColor = "black"
 
-document.addEventListener("mousedown", () => drawing = true);
-document.addEventListener("mouseup", () => drawing = false);
-document.addEventListener("touchstart", () => drawing = true);
-document.addEventListener("touchend", () => drawing = false);
+document.addEventListener("pointerdown", () => drawing = true);
+document.addEventListener("pointerup", () => drawing = false);
 
-canvas.addEventListener("mousemove", draw);
-canvas.addEventListener("mousedown", draw);
-canvas.addEventListener("touchmove", draw);
-canvas.addEventListener("touchdown", draw);
+canvas.addEventListener("pointermove", draw);
+canvas.addEventListener("pointerdown", draw);
 
 c.fillStyle = "white";
 c.fillRect(0, 0, canvas.width, canvas.height);

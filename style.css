@@ -50,6 +50,7 @@ canvas{
     height: 500px;
     border: 5px solid black;
     cursor: pointer;
+    touch-action: none;
 }
 .guessBtn{
     display: block;
