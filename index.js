@@ -104,6 +104,7 @@ async function getModel(){
     }
     catch(error){
         console.error(error);
+        result.textContent = "Error: Cannot load model (Please refresh the page)"
     }
 }
 function resizeImage(image_data, origWidth, origHeight, targetWidth, targetHeight){
